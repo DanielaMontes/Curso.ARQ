@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>UNIDAD 2</title>
+	<link rel="stylesheet" type="text/css" href="styles/proyectosprod2.css">
+	<link rel="stylesheet" type="text/css" href="styles/proyectos.css">
+	<link rel="stylesheet" type="text/css" href="styles/styles.css">
+	<link rel="icon" href="img/icon.png">
+	<script src="scripts/funciones.js" type="text/javascript"></script>
+</head>
+
+<body class="bproybody">
+ <div>
+        <nav class="menu">
+        <img class="logo" src="img/PG.png" alt="logo">
+        <p class="name">Arquitectura de Computadoras</p>
+        <ul>
+            <a href="index.html"><li>INICIO</li></a>
+            <a href="proyectos.html"><li>UNIDADES</li></a>
+            <a href="consulta.html"><li>PROCESADORES<li></a>
+            <a href="info.html"><li>CURSO</li></a>
+        </ul>
+        </nav>
+    </div>
+
+    <h2 id="encabezados" class="margin">UNIDAD 2 - ESTRUCTURA Y FUNCIONAMIENTO DEL CPU</h2>
+    <img class="marginimg" src="img/ImgU/u2.jpg" alt="">
+
+    <div id="divtext">
+        <h2>2.1 Organización del procesador</h2>
+        <p> Un procesador, incluye tanto registros visibles por el usuario como registros de control/estado.<br><br>
+			Los registros visibles por el usuario pueden ser de uso general o tener una utilidad especial, mientras que los registros de control y estado se usan para controlar el funcionamiento del procesador, un claro ejemplo es el contador de programa.Los procesadores utilizan la segmentación de instrucciones para acelerar la ejecución. La segmentación de cauce se puede dividir en ciclo de instrucción en varias etapas separadas que operan secuencialmente:<br><br>
+			</p>
+	   <table  border="1" width="800">
+        <thead>
+            <tr align="center">
+                <th>Captar instrucciones</th>
+                <th >Interpretar instrucciones</th>
+				<th >Captar datos</th>
+				<th >Procesar datos</th>
+				<th >Escribir datos </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="1" align="center">El procesador lee una instrucción de memoria (registro, cache o memoria principal).</td>
+                <td  align="center">La instrucción se codifica para determinar qué acción es necesario.</td>
+				<td align="center">La ejecución de una instrucción puede exigir leer datos de memoria o de un módulo de  E/S.</td>
+				<td align="center">La ejecución e una instrucción puede exigir llevar a cabo alguna operación aritmética o lógica con los datos. </td>
+				<td align="center">Los resultados de una ejecución pueden exigir escribir datos en la memoria o en el módulo de E/S. </td>
+            </tr>               
+        </tbody>
+    </table><br><br>
+	<img src="img/img/Arq.png" width="450"> </img>
+	
+	<p>Para hacer estas cosas, el procesador necesita almacenar instrucciones y datos temporalmente mientras una instrucción esta ejecutándose, en otras palabras el procesador necesita una pequeña memoria interna,el procesador y el bus del sistema.
+	La conexión del procesador con el resto del sistema a través del bus del sistema.<br><br>
+	• La ALU lleva a cabo el verdadero cálculo o procesamiento de datos.<br>
+	• La unidad de control controla la transferencia de datos e instrucciones así a dentro y así afuera del procesador, y el funcionamiento de la ALU.<br>
+	• Consta con una memoria interna mínima, con un conjunto de posiciones de almacenamiento llamadas registros.<br>
+	</p>
+	
+	 <h2>2.2 Estructura de registros</h2>
+	 <p> USe emplean para controlar las instrucciones en ejecución, manejar direccionamiento de memoria y propiciar la capacidad aritmética.
+		Los registros vienen de tres tipos: datos, direcciones e índice, que tiene lugar en casi todos los aspectos de la operación del CPU. El tamaño de un registro depende del CPU; los más simples tienen registros que aceptan 8 o 16 bits de datos y los más complejos tienen registros de 32, 48 o 64 bits.
+     </p><br>
+	 <img src="img/img/Reg.png" width="450"> </img>
+	 <h4>2.2.1 Registros visibles al usuario</h4>
+	 <p> Un registro visible al usuario es aquél que puede ser referenciado por medio del lenguaje máquina que ejecuta la CPU. Prácticamente todos los diseños contemporáneos de 
+		 CPUs están provistos de varios registros visibles al usuario, en oposición a disponer de un único acumulador.
+	 </p>
+	 <h4>2.2.2 Registros de control</h4>
+	 <p>Se utilizan para controlar las operaciones del procesador, la mayor parte de estos registros no son visibles al usuario y algunos pueden ser accesibles a las instrucciones  de maquina ejecutadas en un modo de control. Los registros utilizados son los siguientes:
+	 </p>
+	 
+		<table  border="1" width="800">
+        <thead>
+            <tr align="center">
+                <th>Registro de direcciones de memoria(MAR)</th>
+                <th >Registro de datos de memoria(MBR) </th>
+				<th >Registro de direcciones de entrada y salida (I/O AR)</th>
+				<th >Registro de datos de entrada y salida (I/O BR)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="1" align="center">Contiene la dirección en donde se efectuará la próxima lectura o escritura de datos. El numero de direcciones depende del tamaño de la MAR. </td>
+                <td align="center">La instrucción se codifica para determinar qué acción es necesario.</td>
+				<td align="center">Especifica al dispositivo ya sea de entrada o salida </td>
+				<td align="center">Es una área temporal en donde se lleva a cabo el intercambio de datos entre el procesador y el dispositivo de entrada y salida que esta especificado en IOAR</td>	
+            </tr>               
+        </tbody>
+    </table>
+	  
+	 <h4>2.2.3 Registros de estado</h4>
+	 <p>Se conoce como registro de estado a los registros de memoria en los que se deja constancia de algunas condiciones que se dieron en la última operación realizada y que
+		podrán ser tenidas en cuenta en operaciones posteriores.
+	 </p>
+	 <h4>2.2.4 Ejemplos de registro</h4>
+	 <p>•Registro de automóviles: Un registro de automóviles lleva las siguientes anotaciones nombre del dueño, dirección y las fechas de compra y venta del auto, así como su  número de serie y de motor.<br><br>
+
+		•Registro aduanal: En este tipo de registro se anotan las mercancías que entran a un país, el número de la aduana, el valor de dichas mercancías, el impuesto pagado y el destino de ellas.<br><br>
+
+		•Registro de Empleados: Un registro de empleados mantiene la información sobre el nombre de los empleados de una empresa, la fecha de ingreso, los puestos por los que ha estado y las fechas que ha ocupado dichos puestos, en caso de que el empleado deje de laborar la fecha en que se le da de baja y las causas, entre otros datos.
+	 </p>
+	   
+	 <h2>2.3 El ciclo de la instrucción</h2>
+	 <p>Un ciclo de instrucción (también llamado ciclo de fetch-and-execute o ciclo de fetchdecode-execute en inglés) es el período que tarda la unidad central de proceso (CPU) en 
+	    ejecutar una instrucción de lenguaje máquina.Comprende una secuencia de acciones determinada que debe llevar a cabo la CPU para ejecutar cada instrucción en un programa. Cada instrucción del juego de instrucciones de una CPU puede requerir diferente número de ciclos de instrucción para su ejecución. Un ciclo de instrucción está formado por uno o más ciclos máquina.
+	 </p>
+	 <img src="img/img/Cic.png" width="450"> </img>
+	 
+	 <h4>2.3.1 Segmentación de instrucciones</h4>
+	 <p>Es la técnica de solapamiento de instrucciones.mediante la división de su ejecución en etapas o segmentos.Los segmentos están conectados entre sí cada uno al siguiente.
+		Todos los segmentos proceden y progresan a la vez,la segmentación es transparente al programador. 
+	 </p>
+	 <h4>2.3.2 Conjunto de instrucciones</h4>
+	 <p>Un conjunto de instrucciones o ISA ( Arquitectura del Conjunto de Instrucciones) es una especificación que detalla las instrucciones que una CPU de un ordenador puede entender y ejecutar. El término describe los aspectos del procesador generalmente visibles a un programador, incluyendo los tipos de datos nativos, las instrucciones, los registros, la arquitectura de memoria y las interrupciones, entre otros aspectos. 
+	 </p>
+	 <h4>2.3.3 Características de instrucciones</h4>
+	 <p>Un conjunto de instrucciones o repertorio de instrucciones, juego de instrucciones o ISA (del inglés Instruction Set Architecture, Arquitectura del Conjunto de 	 Instrucciones) es una especificación que detalla las instrucciones que una CPU de un ordenador puede entender y ejecutar, o el conjunto de todos los comandos implementados por un diseño particular de una CPU. El término describe los aspectos del procesador generalmente visibles a un programador, incluyendo los tipos de datos nativos, las instrucciones, los registros, la arquitectura de memoria y las interrupciones, entre otros aspectos.<br><br>
+	 
+	 Las características del repertorio de instrucciones las describiremos a continuación como elementos de una instrucción máquina.<br>
+
+		•Código de operación.<br>
+		•Referencia de datos fuente.<br>
+		•Referencia al operando resultado.<br>
+		•Referencia a la siguiente instrucción.<br><br>
+		Representación de la instrucciones. 
+	 </p>
+	 <img src="img/img/Ins.png" width="450"> </img>
+	
+	<h4>2.3.4 Funciones de instrucciones</h4>
+	<table  border="1" width="800">
+        <thead>
+            <tr align="center">
+                <th>Transferencia de datos</th>
+                <th>Instrucciones artiméticas</th>
+				<th>Instrucciones de comparación</th>
+				<th>Intrucciones lógicas</th>
+				<th>Instrucciones de control</th> 
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="1" align="center">Copian datos de un origen a un destino, sin modificar el origen y normalmente sin afectar a los flags o indicadores de condición. Pueden transferir palabras, fracciones de palabras (bytes, media palabra) o bloques completos de n bytes o palabras. </td>
+                <td align="center">Son efectuadas por la ALU y suelen cambiar los flags o indicadores de condición. </td>
+				<td align="center">Suelen preceder a una instrucción de bifurcación condicional y modifican los flags. </td>
+				<td align="center">Realizan operaciones booleanas "bit a bit" entre dos operandos. Como las aritméticas también modifican los flags. </td>	
+				<td align="center">Permiten modificar la secuencia normal de ejecución de un programa, puede hacerse por salto condicional relativo o absoluto. </td>
+            </tr>               
+        </tbody>
+    </table>
+	 <h4>2.3.5 Modos de direccionamiento</h4>
+	 <p>Un modo de direccionamiento especifica la forma de calcular la dirección de memoria efectiva de un operando mediante el uso de la información contenida en registros y/o constantes, contenida dentro de una instrucción de la máquina o en otra parte.<br><br>
+	•Direccionamiento implícito: Depende solamente de la instrucción, es decir, la instrucción no lleva parámetros..Particularmente en instrucciones que no accedan memoria, o bien que tienen una forma específica de accesarla.<br><br>
+	•Modo registro:Usa solamente registros como operandos. Es el más rápido, pues minimiza los recursos necesarios.<br><br>
+	•Modo inmediato: Tiene dos operandos: un registro y una constante que se usa por su valor. El valor constante no se tiene que buscar en memoria, pues ya se obtuvo al hacer el “fetch” de la instrucción.<br><br>
+	•Modo directo: Uno de los operandos involucra una localidad específica de memoria El valor constante se tiene que buscar en memoria, en la localidad especificada.<br><br>
+	•Modo indirecto: Se usan los registros SI, DI como apuntadores El operando indica una localidad de memoria, cuya dirección (sólo la parte desplazamiento) está en SI o DI. Es más lento que los anteriores, pues tiene que “calcular” la localidad. <br><br>
+	 </p>
+	 <img src="img/img/Mod.png" width="450"> </img>
+	 
+	 
+	  <h2>2.4 Casos de estudio del CPU</h2>
+	  Casos de estudio Reales de CPU<br><br>
+	 • I-8086: Los registros del procesador, se usan para contener los datos con que se está trabajando puesto que el acceso a los registros es mucho más rápido que los accesos a memoria. Se pueden realizar operaciones aritméticas y lógicas, comparaciones, entre otras. Los modos del 8086 son indirectos por registro, indexados o directos por registro.<br>
+	 • Motorola 68000: El mismo direccionamiento lleva implícito el tipo de registro sobre el que trabaja (direcciones o datos). Está basado en dos bancos de 8 registros de 32 bits. Un banco es de datos (Dn) y el otro de punteros (An). Además contiene un contador de programa de 32 bits y un registro de estado de 16 bits.<br>
+     • 80386: Para este microprocesador existe un modo nuevo que requiere un byte adicional denominado SIB (escala, índice, base) que se añade al byte de operandos, es útil para direccionar elementos de vectores de longitudes diferentes en bucles. Es una alternativa a los modos autoindexados que esta máquina no soporta.<br>
+    </div><br><br>
+	
+	<div class="divprecio"> 
+        <h1 class="carrito"><a href="u1.html" class="redprod">Unidad 1</a></h1>
+		<h1 class="carrito"><a href="u3.html" class="redprod">Unidad 3</a></h1>
+		<h1 class="carrito"><a href="u4.html" class="redprod">Unidad 4</a></h1>
+		<h1 class="carrito"><a href="consulta.html" class="redprod">Consulta procesadores</a></h1>
+    </div>
+	
+</body>
+
+</html>
